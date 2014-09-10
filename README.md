@@ -1,15 +1,18 @@
+========================
+adetiblogbundle
+========================
 route "fonctionnelle":
-index.php/blog/article/publier
+    index.php/blog/article/publier
 cette app est incluse dans un simple index.php,
  situé juste au dessus "symfony2":
 index.php:
-<<require_once __DIR__.'/sf2/src/../web/app_dev.php';>>
+    require_once __DIR__.'/sf2/src/../web/app_dev.php';>>
        
 /var/www/:
-  index.php
-  symfony2/
-    symfony2/src
-    symfony2/src/AdetiBlog/Bundle/app/app_dev.php
+ * index.php
+ * symfony2/
+ * symfony2/src
+ * symfony2/src/AdetiBlog/Bundle/app/app_dev.php
 
 Tuxun.
 
