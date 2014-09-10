@@ -1,0 +1,21 @@
+{% set foot= '' %}
+{% if siteparts|length > 0 %}
+
+        {% for sitepart in siteparts %}
+      
+                  {% if sitepart.titre== 'FOOT' %}
+ {% set foot = sitepart.articles_postd %} 
+  {% endif %}  
+                        {% if sitepart.titre== 'HEAD' %}
+   {% set head = sitepart.articles_postd %} 
+  {% endif %}  
+        {% endfor %}
+{% endif %}
+
+<div class="block" id="foot" > 
+{{ foot|raw }}
+</div>
+
+<script type="text/javascript" src="/lug/sf2/src/Adeti/BlogBundle/Resources/public/js/js.js"></script>
+</body>
+</html>

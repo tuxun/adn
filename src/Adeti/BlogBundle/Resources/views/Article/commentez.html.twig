@@ -1,0 +1,38 @@
+{% include  "AdetiBlogBundle:Blog:header.html.twig" %}
+
+{{ validation.form | raw }}
+
+
+{% if articles|length > 0 %}
+<div class="contenu" >
+        {% for article in articles %}
+      
+                  {% if article.titre!= 'FOOT' %}
+                        {% if article.titre!= 'HEAD' %}
+      
+        <div class="contenu" style="margin:2% 1%" >Commentez cet article: {{ article.titre }}<hr/> 
+            {{ article.articles_postd | raw }}
+
+
+            {% if article.commentable== 1 %}
+                            <hr/>  {{ article.datepost|e }} par {{ article.userpostr|e }}
+                {% if comments|length > 0 %}  
+                  
+                          {% for comment in comments %}
+                          {% if comment.id_article == article.id %}
+                             <hr/>   {{ comment.msgpostd  | raw}}   
+                                 {% endif %} {% endfor %}    {% endif %}   
+                                 
+<a href="article/{{ article.id }}" >voir en plus grand</a> {% endif %}  
+
+ </div> 
+
+            {% endif %}                 {% endif %}                     
+        {% endfor %}
+{% endif %}         
+
+
+{% include  "AdetiBlogBundle:Article:commentezform.html.twig" %}
+ </div> 
+
+{% include  "AdetiBlogBundle:Blog:footer.html.twig" %}

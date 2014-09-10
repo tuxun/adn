@@ -1,0 +1,42 @@
+{% extends "AdetiBlogBundle::layout.html.twig" %}
+{% block header %}
+    {{ parent() }}
+{% set head= '' %}
+{% if siteparts|length > 0 %}
+
+        {% for sitepart in siteparts %}
+ 
+                        {% if sitepart.titre== 'HEAD' %}
+   {% set head = sitepart.articles_postd %} 
+  {% endif %}  
+        {% endfor %}
+{{ head|raw }}
+{% endif %}
+{% endblock %}
+{% block menu %}
+{% include  "AdetiBlogBundle:Blog:commons/menu.html.twig" %}
+{% endblock %}
+
+
+{% block article %}
+{{ render(controller("AdetiBlogBundle:Article:liretout")) }}
+{% endblock %}
+{% block discussion %}
+<div class="contenu" >
+{% include  "AdetiBlogBundle:Discuter:discussiontous.html.twig" %}
+</div>
+{% endblock %}
+
+{% block formulaire %}
+{% include  "AdetiBlogBundle:Article:commons/publiezform.html.twig" %}
+
+
+
+
+
+{% endblock %}
+
+
+
+
+

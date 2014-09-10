@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+  <head>
+<meta http-equiv="charset" content="UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>Adeti.org blog libre du LUG!</title>
+<link rel='stylesheet' id='woo-layout-css'  href='templates/css/style.css' type='text/css' media='all' />
+
+
+<link rel="shortcut icon" href="templates/images/adeti.png" />
+<link rel="icon" type="image/png" href="templates/images/adeti.png" />
+</head>
+<body>
+
+  <div><span id="alerttt">Attention: les permanences n'auront pas lieu cet été (2014).<br/>
+Vous pouvez utiliser le formulaire ci dessous pour aller prendre un café chez tuxun (ou autre)!<br/>Sinon... on se voit en septembre!</span></div>
+
+<div id="admlogo">!</div>
+
+{{ validation | raw }}
+
+<div id="menu" > 
+<a href='#adeti' ></a>
+<a href='#contact'>Contact</a>
+<a href='#discussion' >Discussion</a>
+<a href='#conditions' >Conditions</a>
+<a href='#' >Statuts</a>
+<img alt="logo adeti" src="templates/images/adeti.png"/> 
+</div> 
+{% set foot= '' %}
+{% set head= '' %}
+{% if articles|length > 0 %}
+
+        {% for article in articles %}
+      
+                  {% if article.titre!= 'FOOT' %}
+                        {% if article.titre!= 'HEAD' %}
+      
+        <div class="contenu"  id="{{ article.titre }}">        
+            {{ article.articles_postd | raw }}
+
+
+            {% if article.commentable== 1 %}
+                            <hr/>  {{ article.datepost|e }} par {{ article.userpostr|e }}
+                {% if comments|length > 0 %}  
+                  
+                          {% for comment in comments %}
+                          {% if comment.id_article == article.id %}
+                             <hr/>   {{ comment.msgpostd  | raw}}   
+                                 {% endif %} {% endfor %}    {% endif %}   
+                                 
+                    <hr/><a href="contact.php?add={{ article.id }}" >commentez ce truc!</a>     {% endif %}         
+            </div>
+            {% endif %}       {% else %} 
+            {% set foot = article.articles_postd %}    {% endif %}    {% else %}      {% set head = article.articles_postd %}  
+        {% endfor %}
+
+{% endif %}
+
+
+
+ {% if form.stateform < 0 %}  
+{% include  "contact.form.html" %}
+
+{% endif %}
+
+  {% if comments|length > 0 %}  
+{% include  "index.discussion.html" %}
+{% endif %}
+
+
+
+<div class="block" id="foot" > 
+{{ foot|raw }}
+</div>
+
+<script type="text/javascript" src="templates/scripts/js.js"></script>
+</body>
+</html>
+

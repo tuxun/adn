@@ -1,0 +1,17 @@
+{% set navigation_bar = [['index', 'Home Page'], ['blog', 'Blog'], ['archive', 'Archive']] %}
+{% set active_page = active_page|default('index') %}
+<html>
+<head><title>Test Page</title><head>
+<body>
+blogmenu
+{% block navigation %}
+<ul id="navigation">
+{% for item in navigation_bar %}
+<li{% if item[0] == active_page %} class="active"{% endif%}>
+<a href="{{ path(item[0]) }}">{{item[1]}}</a></li>
+{% endfor %}
+</ul>
+{% endblock %}
+</body>
+</html>
+

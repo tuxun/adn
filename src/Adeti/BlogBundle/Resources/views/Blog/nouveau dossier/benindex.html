@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+  <head>
+<meta http-equiv="charset" content="UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>Adeti.org fête ses dix ans !</title>
+<link rel='stylesheet' id='woo-layout-css'  href='style.css' type='text/css' media='all' />
+
+<link rel="shortcut icon" href="adeti.png" />
+<link rel="icon" type="image/png" href="adeti.png" />
+</head>
+<body>
+
+<div class="contenu" > 
+<h4>Qui sommes-nous ?</h4>
+<p id="adeti">
+ADETI est une association (loi 1901) basée à Tours dont l'objectif principal est la promotion de la culture du logiciel libre et l'aide dans son utilisation. C'est aussi un Groupe d'Utilisateurs de Linux.
+<br/><br/>
+Nous vous aidons à comprendre ce qu'est le logiciel libre, à l'installer et à l'utiliser, dont le système d'exploitation GNU/Linux. Nous pouvons notamment vous aider à créer un LiveCD ou un LiveUSB d'une distribution. Nous organisons pafois des <a href="https://fr.wikipedia.org/wiki/Install_party">des install party</a> et participons à des évènements autour du libre et de l'entre-aide entre citoyens.
+</p>
+<br/><br/>
+
+<h4>Nous rencontrer</h4>
+<p id="contact">
+Nous tenons une permanence tous les mardis au centre <a  href=" http://www.openstreetmap.org/way/248476030#map=17/47.41370/0.68619" id="t1">Léo Lagrange Gentiana</a> (90 avenue Maginot). Nous y discutons et nous entre-aidons dans l'utilisation et la connaissance des logiciels libre. Ces permanences ont lieu chaque <b>mardi de 18H30 à 20H30</b> <b>ATTENTION : de juillet à septembre il n'y aura pas de permanence. Contactez-nous, nous ferons peut-être des réunions informelles ailleurs.</b>
+</p>
+<br/><br/>
+
+<h4>Pour s'entre-aider et discuter</h4>
+<p id="mail-list">
+Nous utilisons une <i>mailing-list</i> pour communiquer par e-mail : inscrivez-vous avec votre e-mail sur <a href="http://lists.adeti.org/cgi-bin/mailman/listinfo/libre-en-touraine">depuis l'interface web</a> et suivez les instructions. Vous recevrez des e-mail des autres personnes inscrites sur la liste et pourrez leur en envoyer afin de répondre, discuter, ou demander de l'aide sur un logiciel libre.
+<br/>
+<br/>
+Vous pouvez bien entendu vous en désinscrire à tout moment.
+</p></div>
+
+<div id="contact" class="contenu">
+{% autoescape 'raw' %}
+{{ form | raw }}
+{% endautoescape %}
+</div>
+<div class="contenu" id="discussion" >  
+	{{disq|raw}}
+</div>
+
+<div class="contenu">
+{% include 'footer.html' %}
+</div>
+<script type="text/javascript" src="js.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,38 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+  <head>
+<meta http-equiv="charset" content="UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>Adeti.org fête ses dix ans !</title>
+<link rel='stylesheet' id='woo-layout-css'  href='templates/css/style.css' type='text/css' media='all' />
+
+
+<link rel="shortcut icon" href="templates/images/adeti.png" />
+<link rel="icon" type="image/png" href="templates/images/adeti.png" />
+</head>
+<body>
+
+
+<div id="contact" class="contenu">
+ {% if stateform == 1 %}
+<div class="error">Les erreurs sont indiquées en jaune.</div><br />
+{% elseif stateform == 0 %}
+<div class="success">Bien envoyé !</div><br />
+{% endif %}
+
+<form id="Inscription" method="post" action="{{ url }}">
+<p>Utilisez ce formulaire pour nous contacter, expliquer quelle distribution vous voulez installer, quel matériel vous avez, quel problème vous voulez résoudre, quellles questions vous avez sur l'utilisation de Linux ou s'il manque un renseignement sur cette page. Cela nous permettra de mieux vous aider et de mieux nous organiser.<br />
+  <input type="hidden" name="do" value="contact" />
+  Type de message:<br />
+<input type="radio" id="lugmsg" name="typemsg" value="lugmsg" /><label for="lugmsg">Juste envoyer un message au groupe via la mailing-list</label><br />
+  <input  checked="checked" type="radio" id="postcomm" name="typemsg" value="postcomm" /><label for="postcomm">Ajouter un commentaire sur cette page (façon blog)</label><br />
+<input type="radio" name="typemsg" id="eventsign" value="eventsign" />
+<label for="eventsign">Venir à une permanence, poser une question aux "animateurs"</label>{{ ctform['typemsg_error'] }}<br />
+    <label id='ct_name'>Votre nom ou pseudo*:</label><br />{{ ctform['name_error'] }}
+      <input type='text' name='ct_name' size='20' value="{{ctform['ct_name']}}"/><br />
+    <label id='ct_email'>Votre email*:</label><br />{{ctform['email_error']}}<input type='text' name='ct_email' size='20' value="{{ctform['ct_email']}}" /><br />
+      <label id="ct_message">Message*:</label><br />{{ctform['message_error']}}<br /><textarea name="ct_message" rows="8" cols="40">{{ctform['ct_message']}}</textarea><br />{{ captcha | raw }}
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+#article controler et discutez controler
+###article et commentaires dessus###
+#article:
+blog_article_publier:
+    path:     /publier
+    defaults: { _controller: AdetiBlogBundle:Article:publier }
+
+#commenter un article
+blog_article_commenter:
+    path:     /repondre/{article_a_commenter}
+    defaults: { _controller: AdetiBlogBundle:Article:repondre }
+    requirements:
+        article_a_commenter:  \d*
+#commenter quel article?
+blog_article_commenterquoi:
+    path:     /commenter
+    defaults: { _controller: AdetiBlogBundle:Article:commenterQuoi }
+
+#voir articles
+blog_article_liretout:
+    path:     /lire-tous
+    defaults: { _controller: AdetiBlogBundle:Article:liretout }
+
+#voir articles
+blog_article_lire:
+    path:     /lire/{article}
+    defaults: { _controller: AdetiBlogBundle:Article:lire }
+    requirements:
+        article:  \d*
