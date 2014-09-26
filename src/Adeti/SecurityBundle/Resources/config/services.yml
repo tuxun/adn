@@ -1,0 +1,7 @@
+parameters:
+#    adeti_security.example.class: Adeti\SecurityBundle\Example
+
+services:
+#    adeti_security.example:
+#        class: %adeti_security.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

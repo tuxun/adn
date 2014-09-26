@@ -1,0 +1,49 @@
+Adeti\BlogBundle\Entity\Commentaire:
+    type: entity
+    table: commentaires
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+            unique: true
+    fields:
+        id_article:
+            type: integer
+            length: 10
+            column: id_article
+        email_address:
+            type: string
+            length: 128
+            column: email_address
+        message:
+            type: string
+            length: 128
+            column: message
+        user_name:
+            type: string
+            length: 128
+            column: user_name
+        date_post:
+            type: string
+            length: 128
+            column: date_post
+        root_nuke:
+            type: string
+            length: 64
+            column: root_nuke
+        root_valid:
+            type: string
+            length: 64
+            column: root_valid
+        user_nuke:
+            type: string
+            length: 64
+            column: user_nuke
+        user_valid:
+            type: string
+            length: 64
+            column: user_valid
+        reponse_to:
+            type: integer
+            length: 11
+            column: reponse_to

@@ -1,0 +1,7 @@
+parameters:
+#    adeti_recaptcha.example.class: Adeti\RecaptchaBundle\Example
+
+services:
+#    adeti_recaptcha.example:
+#        class: %adeti_recaptcha.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

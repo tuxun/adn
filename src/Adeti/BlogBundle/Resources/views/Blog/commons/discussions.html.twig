@@ -1,0 +1,60 @@
+
+{% block discussion %}
+<div class="contenu" >discut'
+
+{% set nbtopic= '' %}
+{% for comment in comments %}
+{% set  nbtopic=nbtopic+1 %}
+
+ {% if comment.idArticle.id == 0 %} 
+
+
+<p class="topic">
+{{ loop.index }}
+{{ comment.message | raw }}
+<a href="discuter/repondre/{{ comment.reponseto }}" >
+
+{% image '@AdetiBlogBundle/Resources/public/icons/comments.jpg' %}
+    <img src="{{ asset_url }}" class='logo_commenter' alt="commenter ce sujet"  />
+{% endimage %}
+
+</a>
+{% image '@AdetiBlogBundle/Resources/public/icons/info.gif' %}
+    <img src="{{ asset_url }}" class='logo_info' title="{{ comment.user }}{{ comment.date|date("m/d/Y") }}" alt="{{ comment.user }}{{ comment.date|date("m/d/Y") }}"  />
+{% endimage %}
+
+<hr/>
+ </p>
+
+
+
+
+{% for commentb in comments %}
+{% if commentb.id  != commentb.reponseto %}
+{% if commentb.reponseto == comment.id %}
+	{% if commentb.idArticle.id == 0 %}
+<p class="message">{{ commentb.message | raw }}
+<a href="discuter/repondre/{{ commentb.id }}" >
+
+{% image '@AdetiBlogBundle/Resources/public/icons/comments.jpg' %}
+    <img src="{{ asset_url }}" class='logo_commenter' alt="commenter ce sujet"  />
+{% endimage %}
+
+</a> 
+{% image '@AdetiBlogBundle/Resources/public/icons/info.gif' %}
+    <img src="{{ asset_url }}" class='logo_info' title="{{ comment.user }}{{ comment.date|date("m/d/Y") }}" alt="{{ comment.user }}{{ comment.date|date("m/d/Y") }}"  />
+{% endimage %}
+</p>
+     {% endif %}      {% endif %} 
+      {% endif %} 
+{% endfor %}
+<hr/ style="color:green;">
+<hr/ style="color:red;">
+<hr/ style="color:green;">
+     {% endif %} 
+
+
+
+ {% endfor %} 
+</div>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% set a_navigation_bar = [['blog_home', 'accueil'],  ['blog_home','Articles'], 	['blog_home', 'Publiez'],	['blog_home','commentez'], ] %}
+
+{% set d_navigation_bar = [['blog_home', 'accueil'], 
+	['blog_home', 'Discussions'], 
+	['blog_home', 'ecrire'], 
+	['blog_home', 'Repondre'],
+	['blog_home', 'commentez']] %}
+
+
+
+
+
+
+{% set active_page = active_page|default('blog_home') %}
+{% block menu %}<div id="menu" > <ul id="menu1">
+
+<a href="{{ path('blog_home') }}">index</a></li>
+
+{% for item in a_navigation_bar %}
+<li{% if item[0] == active_page %} class="active"{% endif%}>
+<a href="{{ path(item[0]) }}">{{item[1]}}</a></li>
+{% endfor %}
+
+</ul>
+
+{% image '@AdetiBlogBundle/Resources/public/images/adeti.png' %}
+    <img src="{{ asset_url }}" alt="logo Adeti.org" />
+{% endimage %}
+</div> 
+{% endblock %}

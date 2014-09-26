@@ -1,0 +1,3 @@
+adeti_security_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: AdetiSecurityBundle:Default:index }

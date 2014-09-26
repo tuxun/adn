@@ -1,0 +1,38 @@
+<div class="contenu"  >
+article trouvé:
+{% if articles is iterable %}
+        {% for article in articles %}
+                  {% if article.titre!= 'FOOT' %}
+                        {% if article.titre!= 'HEAD' %}
+                        {% if article.titre!= 'FAKE' %}
+        <div class="scontenu"  >{{ article.titre }}<hr/> 
+            {{ article.article | raw }}
+            {% if article.commentable== 1 %}
+                            <hr/>  {{ article.date|date("m/d/Y") }} par {{ article.user|e }}
+
+                {% if comments|length > 0 %}  
+                  
+                          {% for comment in comments %}
+                {% if article.id==comment.idArticle.id %}  
+
+                             <hr/>   {{ comment.message | raw}}
+
+ {{ comment.idArticle.id  | raw}}   
+
+			    {% endif %}   
+						 {% endfor %}
+
+			    {% endif %}   
+                                 
+                    <hr/><a href="{{ path('blog_article',{ 'article': article.id }) }}" >commentez ce truc!</a>   
+<a href="article/{{ article.id }}" >voir en plus grand</a>
+  {% endif %}         
+ </div>  
+            {% endif %}  {% endif %}     {% endif %}                    
+        {% endfor %}
+{% else %}
+    {# users is probably a string #}
+    {{ articles.article|raw }}!
+{% endif %}
+ </div>  
+

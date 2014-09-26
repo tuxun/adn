@@ -1,0 +1,62 @@
+Adeti\BlogBundle\Entity\Article:
+    type: entity
+    table: articles
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+        email_address:
+            type: string
+            length: 128
+            column: email_address
+        article:
+            type: string
+            length: 1024
+            column: article
+        user_name:
+            type: string
+            length: 64
+            column: user_name
+        date_post:
+            type: string
+            length: 128
+            column: date_post
+        root_nuke:
+            type: string
+            length: 64
+            column: root_nuke
+        root_valid:
+            type: string
+            length: 64
+            column: root_valid
+        user_nuke:
+            type: string
+            length: 64
+            column: user_nuke
+        user_valid:
+            type: string
+            length: 64
+            column: user_valid
+        titre:
+            type: string
+            length: 64
+            column: titre
+        commentable:
+            type: boolean
+            column: commentable
+        in_menu:
+            type: boolean
+            column: in_menu
+    manyToMany:
+        commentaires:
+            targetEntity: Adeti\BlogBundle\Entity\Commentaire
+            joinTable:
+                name: commentaireslnk
+                joinColumns:
+                    articles_id:
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    commentaires_id:
+                        referencedColumnName: id_article
+
