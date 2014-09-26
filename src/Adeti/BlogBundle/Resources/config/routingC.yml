@@ -1,3 +1,0 @@
-adeti_captcha_homepage:
-    path:     /contact/{name}
-    defaults: { _controller: AdetiCaptchaBundle:Default:index }

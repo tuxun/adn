@@ -1,6 +1,0 @@
-<div class="contenu" id="discussion" > 
-{% for comment in comments %}
-                          {% if comment.id_article == 0 %}
-                         <p class="scontenu">    {{ comment.msgpostd | raw }}</p>   <br/>
-                                 {% endif %} {% endfor %}        
-</div>
