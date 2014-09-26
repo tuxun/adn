@@ -1,3 +1,9 @@
+<<<<<<< HEAD
+app/
+vendor/
+web/
+bin/
+=======
 /web/bundles/
 /app/bootstrap.php.cache
 /app/cache/*
@@ -9,3 +15,4 @@
 /vendor/
 /bin/
 /composer.phar
+>>>>>>> 6c23bb658b2bb9cfbd77b03a3989e84f97dacb4b
